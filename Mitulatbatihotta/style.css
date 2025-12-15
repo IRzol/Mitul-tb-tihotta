@@ -1,0 +1,231 @@
+/* --- style.css (Végleges verzió háttérképpel) --- */
+
+/* --- ALAP VÁLTOZÓK --- */
+:root {
+    --primary-brown: #5D4037; /* Sötétbarna (fa/föld) */
+    --secondary-brown: #8D6E63; /* Világosabb barna */
+    --wheat-gold: #FFB300; /* Búza arany */
+    --bg-color: #F5F5DC; /* Bézs (alap, ha nincs kép) */
+    --text-dark: #3E2723; /* Nagyon sötét barna szöveg */
+    --white: #ffffff;
+}
+
+/* --- GLOBÁLIS BEÁLLÍTÁSOK --- */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: var(--text-dark);
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+
+    /* --- HÁTTÉRKÉP BEÁLLÍTÁSA --- */
+    background-color: var(--bg-color); /* Ha nem töltene be a kép, ez a szín lesz */
+    background-image: url('háttér.png'); /* Itt tölti be a képedet */
+    background-size: cover; /* Kitölti a teljes képernyőt */
+    background-position: center; /* A kép közepe látszik */
+    background-attachment: fixed; /* A kép állva marad görgetéskor (profi hatás) */
+    background-repeat: no-repeat;
+}
+
+/* --- FEJLÉC (HEADER) --- */
+.main-header {
+    /* A fejléc maradjon tömör, hogy jól olvasható legyen a cím */
+    background-color: var(--primary-brown);
+    color: var(--wheat-gold);
+    padding: 20px 0;
+    border-bottom: 5px solid var(--secondary-brown);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+}
+
+.cimer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    flex-wrap: wrap;
+    gap: 20px;
+    
+}
+
+.logo {
+    height: 80px;
+    width: auto;
+    border: 2px solid var(--wheat-gold);
+    border-radius: 10px;
+    background-color: var(--white);
+    padding: 5px;
+}
+
+.header-content {
+    text-align: center;
+}
+
+.header-content h1 {
+    margin: 0;
+    font-size: 2rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+}
+
+.header-content h2 {
+    margin: 5px 0;
+    color: var(--white);
+    font-size: 1.2rem;
+}
+
+.header-content p {
+    margin: 0;
+    font-style: italic;
+    opacity: 0.8;
+    font-size: 0.9rem;
+}
+
+/* --- MENÜ (NAVBAR) --- */
+.navbar {
+    background-color: var(--secondary-brown);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+.navbar ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+}
+
+.navbar li {
+    margin: 0;
+}
+
+.navbar a {
+    display: block;
+    color: var(--white);
+    text-align: center;
+    padding: 15px 25px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.navbar a:hover, .navbar a.active {
+    background-color: var(--wheat-gold);
+    color: var(--text-dark);
+}
+
+/* --- TARTALOM DOBOZ (MAIN) - ITT AZ ÁTLÁTSZÓSÁG --- */
+.results-container, .main-page-section {
+    max-width: 1000px;
+    margin: 30px auto;
+    padding: 20px;
+    
+    /* ÜVEGHATÁS (Glassmorphism) */
+    background-color: rgba(255, 255, 255, 0.92); /* 92%-os fedés, kicsit átlátszó */
+    backdrop-filter: blur(5px); /* Elhomályosítja a hátteret a doboz mögött */
+    
+    border-radius: 8px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3); /* Erősebb árnyék a kontraszt miatt */
+    border: 1px solid rgba(255, 255, 255, 0.5); /* Finom keret */
+}
+
+h3 {
+    color: var(--primary-brown);
+    border-bottom: 2px solid var(--wheat-gold);
+    padding-bottom: 10px;
+    margin-top: 0;
+}
+
+/* --- SZÖVEG STÍLUSOK --- */
+.intro-text-2 {
+    font-size: 0.95rem;
+    color: #666;
+    margin-bottom: 25px;
+    background-color: rgba(255, 248, 225, 0.8); /* Ez is picit átlátszó sárga */
+    padding: 10px;
+    border-left: 4px solid var(--wheat-gold);
+    border-radius: 4px;
+}
+
+.text-muted {
+    color: #555; /* Sötétítettem rajta, hogy olvashatóbb legyen a háttéren */
+    font-size: 0.8rem;
+    background-color: rgba(255,255,255,0.7); /* Kis háttér a szövegnek */
+    padding: 5px;
+    border-radius: 4px;
+    display: inline-block;
+}
+
+/* --- TÁBLÁZAT STÍLUSOK --- */
+#score-table-wrapper {
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+    font-size: 1.1rem;
+}
+
+thead {
+    background-color: var(--primary-brown);
+    color: var(--white);
+}
+
+th, td {
+    padding: 12px 15px;
+    text-align: center;
+    border-bottom: 1px solid #ccc;
+}
+
+th {
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    letter-spacing: 0.5px;
+}
+
+td:nth-child(2), th:nth-child(2) {
+    text-align: left;
+    font-weight: bold;
+    color: var(--primary-brown);
+}
+
+/* Zebra csíkozás */
+tbody tr:nth-child(even) {
+    background-color: rgba(0, 0, 0, 0.05); /* Átlátszó szürke sáv */
+}
+
+tbody tr:hover {
+    background-color: rgba(255, 179, 0, 0.2); /* Átlátszó arany sáv hoverkor */
+    cursor: default;
+}
+
+/* Helyezések */
+tbody tr:nth-child(1) .helyezes { background-color: #FFD700; color: #000; border-radius: 50%; width: 30px; display: inline-block; line-height: 30px; }
+tbody tr:nth-child(2) .helyezes { background-color: #C0C0C0; color: #000; border-radius: 50%; width: 30px; display: inline-block; line-height: 30px; }
+tbody tr:nth-child(3) .helyezes { background-color: #CD7F32; color: #000; border-radius: 50%; width: 30px; display: inline-block; line-height: 30px; }
+.helyezes { font-weight: bold; }
+
+/* --- LÁBLÉC --- */
+.main-footer {
+    background-color: var(--primary-brown);
+    color: #d7ccc8;
+    text-align: center;
+    padding: 15px;
+    font-size: 0.85rem;
+    margin-top: 40px;
+    border-top: 4px solid var(--wheat-gold);
+}
+
+/* --- MOBIL NÉZET --- */
+@media (max-width: 600px) {
+    .cimer { flex-direction: column; }
+    .header-content h1 { font-size: 1.5rem; }
+    th, td { padding: 8px 5px; font-size: 0.9rem; }
+    .logo { height: 60px; }
+}

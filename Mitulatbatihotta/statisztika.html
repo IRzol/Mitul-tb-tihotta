@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Élő Állás - Kalaplengető Verseny</title>
+    
+    <meta http-equiv="refresh" content="5"> 
+    
+    <link rel="stylesheet" href="style.css"> 
+</head>
+<body>
+
+    <header class="main-header">
+        <div class="cimer">
+            <img src="traki.png" alt="Traktoros Címer" class="logo">
+            <div class="header-content">
+                <h1>Szélesbálási Kalaplengető</h1>
+                <h2>🏆 AKTUÁLIS EREDMÉNYTÁBLA 🏆</h2>
+                <p>TV Kijelző - Élő Frissítés</p>
+            </div>
+            <img src="soroskorso.png" alt="Sör" class="logo">
+            <img src="Búza.png" alt="Hurka" class="logo">
+        </div>
+    </header>
+
+    <nav class="navbar">
+        <ul>
+            <li><a href="index.html">🏠 Főmenü</a></li> 
+            <li><a href="statisztika.html" class="active">📊 Eredménytábla</a></li> 
+            <li><a href="index.html#kapcsolat">ℹ️ Információ</a></li> 
+        </ul>
+    </nav>
+
+    <main class="results-container">
+        
+        <section id="statisztika"> 
+            <h3>Pillanatnyi Állás és Eredmények</h3>
+            <p class="intro-text-2">
+                <strong>Szabályzat:</strong> A táblázat a versenyzők aktuális, legjobb eredményét mutatja. 
+                Rendezés: <em>Legjobb pontszám</em> alapján. Pontegyezőség esetén a gyorsabb idő és az ABC sorrend dönt.
+            </p>
+            <div id="score-table-wrapper">
+                
+                <table id="current-scores">
+                    <thead>
+                        <tr>
+                            <th style="width: 60px;">Hely</th>
+                            <th>Név</th>
+                            <th>1. kör</th>
+                            <th>2. kör</th>
+                            <th>3. kör</th>
+                            <th style="background-color: var(--secondary-brown);">Össz</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td class="helyezes">1</td><td>Lakatos Dániel</td><td>10</td><td>8</td><td>7</td><td style="font-weight:bold;">10</td></tr>
+                        <tr><td class="helyezes">2</td><td>Nagy Árpád</td><td>9</td><td>5</td><td>7</td><td style="font-weight:bold;">9</td></tr>
+                        <tr><td class="helyezes">3</td><td>Varga Imre</td><td>7</td><td>6</td><td>9</td><td style="font-weight:bold;">9</td></tr>
+                        <tr><td class="helyezes">4</td><td>Kiss Bálint</td><td>8</td><td>9</td><td>6</td><td style="font-weight:bold;">9</td></tr>
+                        <tr><td class="helyezes">5</td><td>Kovács Béla</td><td>6</td><td>8</td><td>3</td><td style="font-weight:bold;">8</td></tr>
+                        <tr><td class="helyezes">6</td><td>Molnár Lajos</td><td>6</td><td>7</td><td>8</td><td style="font-weight:bold;">8</td></tr>
+                        <tr><td class="helyezes">7</td><td>Horváth Levente</td><td>5</td><td>3</td><td>4</td><td style="font-weight:bold;">5</td></tr>
+                        <tr><td class="helyezes">8</td><td>Tóth Gergely</td><td>3</td><td>4</td><td>0</td><td style="font-weight:bold;">4</td></tr>
+                        <tr><td class="helyezes">9</td><td>Szabó Tamás</td><td>4</td><td>0</td><td>2</td><td style="font-weight:bold;">4</td></tr>
+                        <tr><td class="helyezes">10</td><td>Farkas Dominik</td><td>2</td><td>1</td><td>3</td><td style="font-weight:bold;">3</td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <p class="text-muted" style="text-align: right; margin-top: 15px;">
+                Utolsó frissítés: <strong>2025. december 11. 12:23:21</strong> (Automatikus 5 mp-enként)
+            </p>
+        </section>
+
+    </main>
+    
+    <footer class="main-footer">
+        <p>A Szélesbálási Fedettpályás Kalaplengető Verseny hivatalos eredménykijelzője<br>
+        <span style="opacity: 0.6; font-size: 0.8em;">Powered by <strong>Dell Latitude E5570</strong></span></p>
+    </footer>
+
+</body>
+</html>
