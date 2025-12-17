@@ -1,0 +1,10 @@
+1; Kovacs Bela; 6; 8; 3; 8
+2; Nagy Arpad; 9; 5; 7; 9
+3; Szabo Tamas; 4; 0; 2; 4
+4; Varga Imre; 7; 6; 9; 9
+5; Toth Gergely; 3; 4; 0; 4
+6; Kis Balint; 8; 9; 6; 9
+7; Horvath Levente; 5; 3; 4; 5
+8; Farkas Dominik; 2; 2; 3; 3
+9; Lakatos Daniel; 10; 8; 7; 10
+10; Molnar Lajos; 6; 7; 8; 8

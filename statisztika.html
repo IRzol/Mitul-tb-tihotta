@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Élő Állás - Kalaplengető Verseny</title>
+    <meta http-equiv="refresh" content="30">
+    <style>
+
+:root {
+    --primary-brown: #5D4037;
+    --secondary-brown: #8D6E63;
+    --wheat-gold: #FFB300;
+    --bg-color: #F5F5DC;
+    --text-dark: #3E2723;
+    --white: #ffffff;
+}
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: var(--text-dark);
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+    background-color: var(--bg-color);
+    background-image: url('háttér.png');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+}
+.main-header {
+    background-color: var(--primary-brown);
+    color: var(--wheat-gold);
+    padding: 20px 0;
+    border-bottom: 5px solid var(--secondary-brown);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+}
+.cimer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+.logo {
+    height: 80px;
+    width: auto;
+    border: 2px solid var(--wheat-gold);
+    border-radius: 10px;
+    background-color: var(--white);
+    padding: 5px;
+}
+.header-content {
+    text-align: center;
+}
+.header-content h1 {
+    margin: 0;
+    font-size: 2rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+}
+.header-content h2 {
+    margin: 5px 0;
+    color: var(--white);
+    font-size: 1.2rem;
+}
+.header-content p {
+    margin: 0;
+    font-style: italic;
+    opacity: 0.8;
+    font-size: 0.9rem;
+}
+.results-container, .main-page-section {
+    max-width: 1000px;
+    margin: 30px auto;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.92);
+    backdrop-filter: blur(5px);
+    border-radius: 8px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+}
+h3 {
+    color: var(--primary-brown);
+    border-bottom: 2px solid var(--wheat-gold);
+    padding-bottom: 10px;
+    margin-top: 0;
+}
+.intro-text-2 {
+    font-size: 0.95rem;
+    color: #666;
+    margin-bottom: 25px;
+    background-color: rgba(255, 248, 225, 0.8);
+    padding: 10px;
+    border-left: 4px solid var(--wheat-gold);
+    border-radius: 4px;
+}
+.text-muted {
+    color: #555;
+    font-size: 0.8rem;
+    background-color: rgba(255,255,255,0.7);
+    padding: 5px;
+    border-radius: 4px;
+    display: inline-block;
+}
+#score-table-wrapper {
+    /* A JavaScript kezeli a görgetést, itt csak a keretet adjuk meg */
+    overflow: hidden;
+    height: 400px; 
+    border-bottom: 2px solid var(--wheat-gold);
+    position: relative;
+}
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+    font-size: 1.1rem;
+}
+thead {
+    background-color: var(--primary-brown);
+    color: var(--white);
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+th, td {
+    padding: 12px 15px;
+    text-align: center;
+    border-bottom: 1px solid #ccc;
+}
+th {
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    letter-spacing: 0.5px;
+}
+td:nth-child(2), th:nth-child(2) {
+    text-align: left;
+    font-weight: bold;
+    color: var(--primary-brown);
+}
+tbody tr:nth-child(even) {
+    background-color: rgba(0, 0, 0, 0.05);
+}
+tbody tr:hover {
+    background-color: rgba(255, 179, 0, 0.2);
+    cursor: default;
+}
+tbody tr td.elso-hely .helyezes-badge { background-color: #FFD700; color: #000; box-shadow: 0 0 5px #FFD700; }
+tbody tr td.masodik-hely .helyezes-badge { background-color: #C0C0C0; color: #000; }
+tbody tr td.harmadik-hely .helyezes-badge { background-color: #CD7F32; color: #000; }
+
+.helyezes-badge { 
+    border-radius: 50%; 
+    width: 35px; 
+    height: 35px;
+    display: inline-block; 
+    line-height: 35px; 
+    font-weight: bold;
+    text-align: center;
+}
+
+.main-footer {
+    background-color: var(--primary-brown);
+    color: #d7ccc8;
+    text-align: center;
+    padding: 15px;
+    font-size: 0.85rem;
+    margin-top: 40px;
+    border-top: 4px solid var(--wheat-gold);
+}
+@media (max-width: 600px) {
+    .cimer { flex-direction: column; }
+    .header-content h1 { font-size: 1.5rem; }
+    th, td { padding: 8px 5px; font-size: 0.9rem; }
+    .logo { height: 60px; }
+}
+
+    </style>
+</head>
+<body>
+    <header class="main-header">
+        <div class="cimer">
+            <img src="traki.png" alt="Traktoros Címer" class="logo">
+            <div class="header-content">
+                <h1>Szélesbálási Kalaplengető</h1>
+                <h2>🏆 AKTUÁLIS EREDMÉNYTÁBLA 🏆</h2>
+                <p>TV Kijelző - Élő Frissítés</p>
+            </div>
+            <img src="soroskorso.png" alt="Sör" class="logo">
+            <img src="Búza.png" alt="Hurka" class="logo">
+        </div>
+    </header>
+    <main class="results-container">
+        <section id="statisztika">
+            <h3>Pillanatnyi Állás és Eredmények</h3>
+            <p class="intro-text-2">
+                <strong>Szabályzat:</strong> A táblázat a versenyzők aktuális, legjobb eredményét mutatja.
+                Rendezés: <em>Legjobb pontszám</em> alapján. Azonos pont esetén a <strong>gyorsabb idő</strong> dönt.
+            </p>
+            <div id="score-table-wrapper">
+                <table id="current-scores">
+                    <thead>
+                        <tr>
+                            <th style="width: 60px;">Hely</th>
+                            <th>Név</th>
+                            <th>1. kör</th>
+                            <th>2. kör</th>
+                            <th>3. kör</th>
+                            <th style="background-color: var(--secondary-brown);">Legjobb pont</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="elso-hely"><span class="helyezes-badge">1.</span></td>
+                            <td>Lakatos Daniel</td>
+                            <td>10</td>
+                            <td>8</td>
+                            <td>7</td>
+                            <td style="font-weight:bold;" title="Döntő idő: 0,55 mp">10</td>
+                        </tr>
+                        <tr>
+                            <td class="masodik-hely"><span class="helyezes-badge">2.</span></td>
+                            <td>Nagy Arpad</td>
+                            <td>9</td>
+                            <td>5</td>
+                            <td>7</td>
+                            <td style="font-weight:bold;" title="Döntő idő: 1,11 mp">9</td>
+                        </tr>
+                        <tr>
+                            <td class="harmadik-hely"><span class="helyezes-badge">3.</span></td>
+                            <td>Varga Imre</td>
+                            <td>7</td>
+                            <td>6</td>
+                            <td>9</td>
+                            <td style="font-weight:bold;" title="Döntő idő: 1,553 mp">9</td>
+                        </tr>
+                        <tr>
+                            <td class=""><span class="helyezes-badge">4.</span></td>
+                            <td>Kis Balint</td>
+                            <td>8</td>
+                            <td>9</td>
+                            <td>6</td>
+                            <td style="font-weight:bold;" title="Döntő idő: 1,87 mp">9</td>
+                        </tr>
+                        <tr>
+                            <td class=""><span class="helyezes-badge">5.</span></td>
+                            <td>Kovacs Bela</td>
+                            <td>6</td>
+                            <td>8</td>
+                            <td>3</td>
+                            <td style="font-weight:bold;" title="Döntő idő: 2,01 mp">8</td>
+                        </tr>
+                        <tr>
+                            <td class=""><span class="helyezes-badge">6.</span></td>
+                            <td>Molnar Lajos</td>
+                            <td>6</td>
+                            <td>7</td>
+                            <td>8</td>
+                            <td style="font-weight:bold;" title="Döntő idő: 2,02 mp">8</td>
+                        </tr>
+                        <tr>
+                            <td class=""><span class="helyezes-badge">7.</span></td>
+                            <td>Horvath Levente</td>
+                            <td>5</td>
+                            <td>3</td>
+                            <td>4</td>
+                            <td style="font-weight:bold;" title="Döntő idő: 5,11 mp">5</td>
+                        </tr>
+                        <tr>
+                            <td class=""><span class="helyezes-badge">8.</span></td>
+                            <td>Toth Gergely</td>
+                            <td>3</td>
+                            <td>4</td>
+                            <td>0</td>
+                            <td style="font-weight:bold;" title="Döntő idő: 6,12 mp">4</td>
+                        </tr>
+                        <tr>
+                            <td class=""><span class="helyezes-badge">9.</span></td>
+                            <td>Szabo Tamas</td>
+                            <td>4</td>
+                            <td>0</td>
+                            <td>2</td>
+                            <td style="font-weight:bold;" title="Döntő idő: 6,22 mp">4</td>
+                        </tr>
+                        <tr>
+                            <td class=""><span class="helyezes-badge">10.</span></td>
+                            <td>Farkas Dominik</td>
+                            <td>2</td>
+                            <td>2</td>
+                            <td>3</td>
+                            <td style="font-weight:bold;" title="Döntő idő: 7,44 mp">3</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <p class="text-muted" style="text-align: right; margin-top: 15px;">
+                Utolsó frissítés: <strong>2025. december 17. 22:18:40</strong> (Automatikus)
+            </p>
+        </section>
+    </main>
+    <footer class="main-footer">
+        <p>A Szélesbálási Fedettpályás Kalaplengető Verseny hivatalos eredménykijelzője<br>
+        <span style="opacity: 0.6; font-size: 0.8em;">Powered by <strong>Dell Latitude E5570</strong></span></p>
+    </footer>
+    <script>
+        window.onload = function() {
+            const container = document.getElementById('score-table-wrapper');
+            const table = document.getElementById('current-scores');
+            const tbody = table.querySelector('tbody');
+
+            // Csak akkor aktiváljuk a görgetést, ha a lista hosszabb, mint a képernyő
+            if (table.clientHeight > container.clientHeight) {
+                // Tartalom duplázása a végtelen hatáshoz
+                const originalContent = tbody.innerHTML;
+                tbody.innerHTML += originalContent;
+
+                let currentScroll = 0;
+                const speed = 0.4; // Görgetési sebesség (kisebb szám = lassabb)
+                const refreshRate = 20;
+
+                function autoScroll() {
+                    currentScroll += speed;
+                    container.scrollTop = currentScroll;
+
+                    // Ha elértük a lista felét (az eredetit), visszaugrunk az elejére
+                    if (currentScroll >= (table.scrollHeight / 2)) {
+                        currentScroll = 0;
+                    }
+                }
+
+                setInterval(autoScroll, refreshRate);
+            }
+        };
+    </script>
+</body>
+</html>
